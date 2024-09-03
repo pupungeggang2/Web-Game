@@ -1,1 +1,4 @@
-const fileName = 'pupungeggang2:Cars'
+const fileName = 'pupungeggang2:Card'
+const emptySave = {
+    
+}
