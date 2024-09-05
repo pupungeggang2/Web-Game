@@ -11,3 +11,29 @@ let state = ''
 let menu = false
 let option = false
 
+let varSave = {
+
+}
+
+let varKeyboard = {
+    left : false,
+    right : false,
+    up : false,
+    down : false
+}
+
+let varPlayer = {
+
+}
+
+let varField = {
+
+}
+
+let varAdventure = {
+
+}
+
+let varGame = {
+
+}
