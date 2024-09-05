@@ -6,5 +6,5 @@ function drawSceneInit() {
     context.fillStyle = 'White'
     context.clearRect(0, 0, 1280, 720)
     context.fillRect(0, 0, 1280, 720)
-    context.fillStyle = 'White'
+    context.fillStyle = 'Black'
 }

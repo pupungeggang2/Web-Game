@@ -45,7 +45,7 @@ function loop() {
 }
 
 function mouseUp(event) {
-    let targetRect = cavnas.getBoundingClientRect()
+    let targetRect = canvas.getBoundingClientRect()
     let x = event.clientX - targetRect.left
     let y = event.clientY - targetRect.top
     let button = event.button
