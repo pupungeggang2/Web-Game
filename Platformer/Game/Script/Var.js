@@ -34,6 +34,7 @@ let varGame = {
 let varField = {
     field : {},
     controlling : -1,
+    stepping : -1,
 }
 
 let varPlayer = {
