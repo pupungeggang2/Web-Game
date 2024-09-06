@@ -11,7 +11,38 @@ function drawSceneInit() {
 }
 
 function drawField() {
+    for (let i = 0; i < varField.field['Thing'].length; i++) {
+        let tempThing = varField.field['Thing'][i]
 
+        if (tempThing['Type'] === 'Tile') {
+            for (let i = 0; i < tempThing['Cell'].length; i++) {
+                for (let j = 0; j < tempThing['Cell'][i].length; j++) {
+                    if (tempThing['Cell'][i][j] != 0) {
+                        context.strokeRect(Math.floor(tempThing['Start'][0] + j * 40 - varField.camera[0]), Math.floor(tempThing['Start'][1] + i * 40 - varField.camera[1]), 40, 40)
+                    }
+                }
+            }
+        }
+
+        if (tempThing['Type'] === 'Wall') {
+            context.fillRect(Math.floor(tempThing['Position'][0] - varField.camera[0]), Math.floor(tempThing['Position'][1] - varField.camera[1]), tempThing['Size'][0], tempThing['Size'][1])
+        }
+
+        if (tempThing['Type'] === 'Platform') {
+            context.strokeRect(Math.floor(tempThing['Position'][0] - tempThing['Size'][0] / 2 - varField.camera[0]), Math.floor(tempThing['Position'][1] - tempThing['Size'][1] / 2 - varField.camera[1]), tempThing['Size'][0], tempThing['Size'][1])
+
+            context.beginPath()
+            context.moveTo(Math.floor(tempThing['Path'][0][0] - varField.camera[0]), Math.floor(tempThing['Path'][0][1] - varField.camera[1]))
+
+            for (let j = 1; j < tempThing['Path'].length; j++) {
+                context.lineTo(Math.floor(tempThing['Path'][j][0] - varField.camera[0]), Math.floor(tempThing['Path'][j][1] - varField.camera[1]))
+            }
+
+            context.stroke()
+        }
+    }
+
+    context.strokeRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 16), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 16), 32, 32)
 }
 
 function drawMenu() {

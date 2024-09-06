@@ -28,6 +28,10 @@ function main() {
 }
 
 function loop() {
+    gameFramePrevious = gameFrameCurrent
+    gameFrameCurrent = Date.now()
+    delta = gameFrameCurrent - gameFramePrevious
+
     if (scene === 'Title') {
         loopTitle()
     } else if (scene === 'Game') {
@@ -44,6 +48,12 @@ function keyDown(event) {
         event.preventDefault()
     }
 
+    for (k in varKeyboardMap) {
+        if (key === varKeyboardMap[k]) {
+            varKeyboard[k] = true
+        }
+    }
+
     if (scene === 'Title') {
         keyDownTitle(key)
     } else if (scene === 'Game') {
@@ -56,6 +66,12 @@ function keyUp(event) {
 
     if (key === 'ArrowLeft' || key === 'ArrowRight' || key === 'ArrowUp' || key === 'ArrowDown' || key === ' ') {
         event.preventDefault()
+    }
+
+    for (k in varKeyboardMap) {
+        if (key === varKeyboardMap[k]) {
+            varKeyboard[k] = false
+        }
     }
 
     if (scene === 'Title') {

@@ -26,6 +26,9 @@ function keyDownTitle(key) {
                 if (varSelect.title === 0) {
                     scene = 'Game'
                     state = ''
+                    loadField(varSave.place)
+                    varField.positionPlayer[0] = varField.field['Spawn'][0]
+                    varField.positionPlayer[1] = varField.field['Spawn'][1]
                 }
             }
         }

@@ -1,9 +1,18 @@
 function loopGame() {
     displayGame()
+
+    if (menu === false) {
+        if (state === '') {
+            movePlayer()
+            moveThing()
+        }
+    }
 }
 
 function displayGame() {
     drawSceneInit()
+
+    drawField()
 
     if (menu === true) {
         drawMenu()
