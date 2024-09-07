@@ -24,6 +24,8 @@ let varPlayer = {
     lifeMax : 60,
     energy : 8,
     energyMax : 8,
+    power : 10,
+    skill : 10,
 
     ability : [],
     hand : [],

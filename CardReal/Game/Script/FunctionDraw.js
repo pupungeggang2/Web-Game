@@ -25,6 +25,18 @@ function drawGameLower() {
         context.strokeRect(UI.game.lower.hand[i][0], UI.game.lower.hand[i][1], UI.game.lower.hand[i][2], UI.game.lower.hand[i][3])
         context.fillText(`${handKeyMap[i]}`, UI.game.lower.handKey[i][0], UI.game.lower.handKey[i][1])
     }
+
+    context.drawImage(img.icon.power, UI.game.lower.iconPower[0], UI.game.lower.iconPower[1])
+    context.fillText(`${varPlayer.power}`, UI.game.lower.textPower[0], UI.game.lower.textPower[1])
+    context.drawImage(img.icon.skill, UI.game.lower.iconSkill[0], UI.game.lower.iconSkill[1])
+    context.fillText(`${varPlayer.power}`, UI.game.lower.textSkill[0], UI.game.lower.textSkill[1])
+
+    context.drawImage(img.icon.life, UI.game.lower.iconLife[0], UI.game.lower.iconLife[1])
+    context.fillText(`${varPlayer.life}/${varPlayer.lifeMax}`, UI.game.lower.textLife[0], UI.game.lower.textLife[1])
+    context.strokeRect(UI.game.lower.barLife[0], UI.game.lower.barLife[1], UI.game.lower.barLife[2], UI.game.lower.barLife[3])
+    context.drawImage(img.icon.energy, UI.game.lower.iconEnergy[0], UI.game.lower.iconEnergy[1])
+    context.fillText(`${varPlayer.energy.toFixed(1)}/${varPlayer.energyMax}`, UI.game.lower.textEnergy[0], UI.game.lower.textEnergy[1])
+    context.strokeRect(UI.game.lower.barEnergy[0], UI.game.lower.barEnergy[1], UI.game.lower.barEnergy[2], UI.game.lower.barEnergy[3])
 }
 
 function drawMenu() {
