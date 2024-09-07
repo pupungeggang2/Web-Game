@@ -35,5 +35,10 @@ let varAdventure = {
 }
 
 let varGame = {
-
+    turn : 0,
+    turnWho : 0,
+    deckCard : [],
+    deckCrystal : [],
+    handCard : [],
+    handCrystal : [],
 }
