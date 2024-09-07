@@ -11,11 +11,20 @@ function drawSceneInit() {
 }
 
 function drawField() {
-
+    context.fillRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20), 40, 40)
 }
 
 function drawGameLower() {
+    context.strokeRect(UI.game.lower.ability[0], UI.game.lower.ability[1], UI.game.lower.ability[2], UI.game.lower.ability[3])
+    context.strokeRect(UI.game.lower.dash[0], UI.game.lower.dash[1], UI.game.lower.dash[2], UI.game.lower.dash[3])
 
+    context.fillText(`1`, UI.game.lower.abilityKey[0], UI.game.lower.abilityKey[1])
+    context.fillText(`2`, UI.game.lower.dashKey[0], UI.game.lower.dashKey[1])
+
+    for (let i = 0; i < 6; i++) {
+        context.strokeRect(UI.game.lower.hand[i][0], UI.game.lower.hand[i][1], UI.game.lower.hand[i][2], UI.game.lower.hand[i][3])
+        context.fillText(`${handKeyMap[i]}`, UI.game.lower.handKey[i][0], UI.game.lower.handKey[i][1])
+    }
 }
 
 function drawMenu() {

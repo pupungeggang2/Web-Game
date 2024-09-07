@@ -1,5 +1,12 @@
 function loopGame() {
     displayGame()
+
+    if (menu === false) {
+        if (state === '') {
+            movePlayer()
+
+        }
+    }
 }
 
 function displayGame() {
@@ -25,7 +32,7 @@ function mouseUpGame(x, y, button) {
                 if (pointInsideRectArray(x, y, UI.game.buttonMenu)) {
                     menu = true
                 } else if (pointInsideRectArray(x, y, UI.game.fieldArea)) {
-                    alert(1)
+
                 } else if (pointInsideRectArray(x, y, UI.game.lowerArea)) {
 
                 }

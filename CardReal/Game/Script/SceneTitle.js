@@ -27,7 +27,9 @@ function mouseUpTitle(x, y, button) {
                     eraseData()
                 } else if (pointInsideRectArray(x, y, UI.title.buttonCustom)) {
                     scene = 'Game'
-                    state = 'Start'
+                    state = ''
+                    varField.positionPlayer = [1280, 1280]
+                    spawnMonster(320, 320, 1)
                 }
             }
         }
