@@ -29,6 +29,8 @@ function keyDownTitle(key) {
                     loadField(varSave.place)
                     varField.positionPlayer[0] = varField.field['Spawn'][0]
                     varField.positionPlayer[1] = varField.field['Spawn'][1]
+                } else if (varSelect.title === 2) {
+                    eraseData()
                 }
             }
         }
