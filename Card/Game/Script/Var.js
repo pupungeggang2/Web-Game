@@ -27,7 +27,8 @@ let varPlayer = {
 }
 
 let varField = {
-
+    camera : [0, 0],
+    positionPlayer : [0, 0],
 }
 
 let varAdventure = {

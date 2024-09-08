@@ -18,15 +18,35 @@ function displayTitle() {
 function mouseUpTitle(x, y, button) {
     if (button === 0) {
         if (menu === false) {
-            if (pointInsideRectArray(x, y, UI.title.buttonStart)) {
-                
+            if (state === '') {
+                if (pointInsideRectArray(x, y, UI.title.buttonStart)) {
+                    scene = 'Field'
+                    state = ''
+                } else if (pointInsideRectArray(x, y, UI.title.buttonErase)) {
+                    eraseData()
+                } else if (pointInsideRectArray(x, y, UI.title.buttonDebug)) {
+                    scene = 'Game'
+                    state = 'Start'
+                }
             }
         }
     }
 }
 
 function keyDownTitle(key) {
-
+    if (menu === false) {
+        if (state === '') {
+            if (key === 's') {
+                scene = 'Field'
+                state = ''
+            } else if (key === 'e') {
+                eraseData()
+            } else if (key === 'd') {
+                scene = 'Game'
+                state = 'Start'
+            }
+        }
+    }
 }
 
 function keyUpTitle(key) {

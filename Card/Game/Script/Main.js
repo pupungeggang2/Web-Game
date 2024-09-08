@@ -66,6 +66,19 @@ function keyDown(event) {
         event.preventDefault()
     }
 
+    if (key === 'ArrowLeft' || key === 'a') {
+        varKeyboard.left = true
+    }
+    if (key === 'ArrowRight' || key === 'd') {
+        varKeyboard.right = true
+    }
+    if (key === 'ArrowUp' || key === 'w') {
+        varKeyboard.up = true
+    }
+    if (key === 'ArrowDown' || key === 'd') {
+        varKeyboard.down = true
+    }
+
     if (scene === 'Title') {
         keyDownTitle(key)
     } else if (scene === 'Field') {
@@ -80,6 +93,19 @@ function keyUp(event) {
     
     if (key === 'ArrowLeft' || key === 'ArrowRight' || key === 'ArrowUp' || key === 'ArrowDown' || key === ' ') {
         event.preventDefault()
+    }
+
+    if (key === 'ArrowLeft' || key === 'a') {
+        varKeyboard.left = false
+    }
+    if (key === 'ArrowRight' || key === 'd') {
+        varKeyboard.right = false
+    }
+    if (key === 'ArrowUp' || key === 'w') {
+        varKeyboard.up = false
+    }
+    if (key === 'ArrowDown' || key === 'd') {
+        varKeyboard.down = false
     }
 
     if (scene === 'Title') {
