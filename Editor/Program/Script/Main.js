@@ -27,6 +27,10 @@ function main() {
 }
 
 function loop() {
+    programFramePrevious = programFrameCurrent
+    programFrameCurrent = Date.now()
+    delta = programFrameCurrent - programFramePrevious
+    
     programInstance = requestAnimationFrame(loop)
 }
 
