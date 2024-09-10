@@ -22,6 +22,8 @@ function mouseUpTitle(x, y, button) {
                 if (pointInsideRectArray(x, y, UI.title.buttonStart)) {
                     scene = 'Field'
                     state = ''
+                    varField.place = varSave['Place']
+                    loadField(varField.place)
                 } else if (pointInsideRectArray(x, y, UI.title.buttonErase)) {
                     eraseData()
                 } else if (pointInsideRectArray(x, y, UI.title.buttonDebug)) {

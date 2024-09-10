@@ -1,3 +1,0 @@
-function movePlayer() {
-    let tempPosition = []
-}

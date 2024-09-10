@@ -24,6 +24,10 @@ function drawMenu() {
     context.fillText(`Exit [E]`, UI.menu.textExit[0], UI.menu.textExit[1], UI.menu.textExit[2], UI.menu.textExit[3])
 }
 
+function drawField() {
+    context.strokeRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20), 40, 40)   
+}
+
 function drawGameStart() {
     context.fillStyle = 'White'
     context.fillRect(UI.game.start.rect[0], UI.game.start.rect[1], UI.game.start.rect[2], UI.game.start.rect[3])

@@ -11,6 +11,8 @@ function loopField() {
 function displayField() {
     drawSceneInit()
 
+    drawField()
+
     context.strokeRect(UI.field.buttonMenu[0], UI.field.buttonMenu[1], UI.field.buttonMenu[2], UI.field.buttonMenu[3])
 
     if (menu === true) {
