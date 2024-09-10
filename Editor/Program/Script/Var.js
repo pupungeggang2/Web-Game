@@ -9,6 +9,8 @@ let delta
 let scene = 'Edit'
 let state = ''
 
+let varMouse = [0, 0]
+
 let varEditor = {
 
 }
