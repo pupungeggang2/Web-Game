@@ -15,6 +15,13 @@ let varOption = {
     instantSkill : true,
 }
 
+let varKeyboard = {
+    left : false,
+    right : false,
+    up : false,
+    down : false,
+}
+
 let varSave = {
     
 }

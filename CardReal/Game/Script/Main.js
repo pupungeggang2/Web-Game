@@ -62,6 +62,10 @@ function mouseUp(event) {
 function keyDown(event) {
     let key = event.key
 
+    if (key === 'ArrowLeft' || key === 'ArrowRight' || key === 'ArrowUp' || key === 'ArrowDown' || key === ' ') {
+        event.preventDefault()
+    }
+
     if (scene === 'Title') {
         keyDownTitle(key)
     } else if (scene === 'Ready') {
@@ -73,6 +77,10 @@ function keyDown(event) {
 
 function keyUp(event) {
     let key = event.key
+
+    if (key === 'ArrowLeft' || key === 'ArrowRight' || key === 'ArrowUp' || key === 'ArrowDown' || key === ' ') {
+        event.preventDefault()
+    }
 
     if (scene === 'Title') {
         keyUpTitle(key)
