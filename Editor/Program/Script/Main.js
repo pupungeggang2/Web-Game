@@ -14,7 +14,7 @@ const promiseLoad = new Promise((resolve, reject) => {
 function main() {
     promiseLoad.then(() => {
         canvas = document.getElementById('Screen')
-        context = cavnas.getContext('2d')
+        context = canvas.getContext('2d')
 
         window.addEventListener('mousedown', mouseDown, false)
         window.addEventListener('mousemove', mouseMove, false)

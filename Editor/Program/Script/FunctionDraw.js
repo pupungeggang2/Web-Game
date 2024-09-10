@@ -9,3 +9,19 @@ function drawSceneInit() {
     context.fillRect(0, 0, 1280, 720)
     context.fillStyle = 'Black'
 }
+
+function drawBarUpper() {
+    context.strokeRect(UI.edit.barUpper.rect[0], UI.edit.barUpper.rect[1], UI.edit.barUpper.rect[2], UI.edit.barUpper.rect[3])
+}
+
+function drawBarLeft() {
+    context.strokeRect(UI.edit.barLeft.rect[0], UI.edit.barLeft.rect[1], UI.edit.barLeft.rect[2], UI.edit.barLeft.rect[3])
+}
+
+function drawBarRight() {
+    context.strokeRect(UI.edit.barRight.rect[0], UI.edit.barRight.rect[1], UI.edit.barRight.rect[2], UI.edit.barRight.rect[3])
+}
+
+function drawBarLower() {
+    context.strokeRect(UI.edit.barLower.rect[0], UI.edit.barLower.rect[1], UI.edit.barLower.rect[2], UI.edit.barLower.rect[3])
+}
