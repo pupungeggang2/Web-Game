@@ -12,6 +12,9 @@ function drawSceneInit() {
 
 function drawBarUpper() {
     context.strokeRect(UI.edit.barUpper.rect[0], UI.edit.barUpper.rect[1], UI.edit.barUpper.rect[2], UI.edit.barUpper.rect[3])
+    context.drawImage(img.icon.newFile, UI.edit.barUpper.buttonNewFile[0], UI.edit.barUpper.buttonNewFile[1])
+    context.drawImage(img.icon.saveFile, UI.edit.barUpper.buttonSaveFile[0], UI.edit.barUpper.buttonSaveFile[1])
+    context.drawImage(img.icon.loadFile, UI.edit.barUpper.buttonLoadFile[0], UI.edit.barUpper.buttonLoadFile[1])
 }
 
 function drawBarLeft() {

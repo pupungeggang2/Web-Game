@@ -1,7 +1,12 @@
 const UI = {
     edit : {
         barUpper : {
-            rect : [0, 0, 1280, 40]
+            rect : [0, 0, 1280, 40],
+            buttonNewFile : [0, 0, 40, 40],
+            buttonSaveFile : [40, 0, 40, 40],
+            buttonLoadFile : [80, 0, 40, 40],
+
+            buttonPlay : [],
         },
 
         barLeft : {
@@ -18,6 +23,8 @@ const UI = {
     },
 
     test : {
-
+        buttonPause : [],
+        buttonRestart : [],
+        buttonExit : [],
     },
 }
