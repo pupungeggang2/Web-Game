@@ -7,7 +7,7 @@ function displayGame() {
 
     context.strokeRect(UI.game.buttonMenu[0], UI.game.buttonMenu[1], UI.game.buttonMenu[2], UI.game.buttonMenu[3])
 
-    if (state === 'Start') {
+    if (state === 'Start' || state === 'StartConfirm') {
         drawGameStart()
     }
 
@@ -26,7 +26,23 @@ function mouseUpGame(x, y, button) {
             if (state === '') {
 
             } else if (state === 'Start') {
+                for (let i = 0; i < 3; i++) {
+                    if (pointInsideRectArray(x, y, UI.game.start.buttonSelect[i])) {
+                        if (varGame.startHandChange[i] === true) {
+                            varGame.startHandChange[i] = false
+                        } else {
+                            varGame.startHandChange[i] = true
+                        }
+                    }
+                }
 
+                if (pointInsideRectArray(x, y, UI.game.start.buttonStart)) {
+                    state = 'StartConfirm'
+                }
+            } else if (state === 'StartConfirm') {
+                if (pointInsideRectArray(x, y, UI.game.start.buttonStart)) {
+                    state = ''
+                }
             }
         } else if (menu === true) {
             if (pointInsideRectArray(x, y, UI.menu.buttonResume) || pointInsideRectArray(x, y, UI.game.buttonMenu)) {

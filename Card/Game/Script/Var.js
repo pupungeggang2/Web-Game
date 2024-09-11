@@ -22,6 +22,10 @@ let varKeyboard = {
     down : false
 }
 
+let varSelect = {
+
+}
+
 let varPlayer = {
 
 }
@@ -40,6 +44,7 @@ let varAdventure = {
 let varGame = {
     turn : 0,
     turnWho : 0,
+    startHandChange : [false, false, false],
     deckCard : [],
     deckCrystal : [],
     handCard : [],

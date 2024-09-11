@@ -36,12 +36,29 @@ function drawGameStart() {
 
     if (state === 'Start') {
         context.fillText(`Select cards to change`, UI.game.start.textTitle[0], UI.game.start.textTitle[1])
+    } else if (state === 'StartConfirm') {
+        context.fillText(`Confirm`, UI.game.start.textTitle[0], UI.game.start.textTitle[1])
     }
 
     for (let i = 0; i < 3; i++) {
         context.strokeRect(UI.game.start.buttonSelect[i][0], UI.game.start.buttonSelect[i][1], UI.game.start.buttonSelect[i][2], UI.game.start.buttonSelect[i][3])
     }
 
+    if (state === 'Start') {
+        context.strokeStyle = 'Green'
+        for (let i = 0; i < 3; i++) {
+            if (varGame.startHandChange[i] === true) {
+                context.strokeRect(UI.game.start.buttonSelect[i][0], UI.game.start.buttonSelect[i][1], UI.game.start.buttonSelect[i][2], UI.game.start.buttonSelect[i][3])
+            }
+        }
+        context.strokeStyle = 'Black'
+    }
+
     context.strokeRect(UI.game.start.buttonStart[0], UI.game.start.buttonStart[1], UI.game.start.buttonStart[2], UI.game.start.buttonStart[3])
-    context.fillText(`Start`, UI.game.start.textStart[0], UI.game.start.textStart[1])
+
+    if (state === 'Start') {
+        context.fillText(`Change Card`, UI.game.start.textStart[0], UI.game.start.textStart[1])
+    } else if (state === 'StartConfirm') {
+        context.fillText(`Start`, UI.game.start.textStart[0], UI.game.start.textStart[1])
+    }
 }

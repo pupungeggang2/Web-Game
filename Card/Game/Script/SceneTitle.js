@@ -29,6 +29,8 @@ function mouseUpTitle(x, y, button) {
                 } else if (pointInsideRectArray(x, y, UI.title.buttonDebug)) {
                     scene = 'Game'
                     state = 'Start'
+                    gameInit()
+                    debugDeckGenerate()
                 }
             }
         }
