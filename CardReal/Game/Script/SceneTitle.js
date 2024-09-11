@@ -28,8 +28,12 @@ function mouseUpTitle(x, y, button) {
                 } else if (pointInsideRectArray(x, y, UI.title.buttonCustom)) {
                     scene = 'Game'
                     state = ''
+                    varSelect.gameStart = -1
+                    generateDeck(startDeck)
+                    varPlayer.deck = shuffle(varPlayer.deck)
+                    drawCardFromDeck()
                     varField.positionPlayer = [1280, 1280]
-                    spawnMonster(320, 320, 1)
+                    spawnMonster(1400, 1400, 1)
                 }
             }
         }

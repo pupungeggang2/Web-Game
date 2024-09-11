@@ -47,6 +47,11 @@ const UI = {
         }
     },
 
+    start : {
+        rect : [80, 80, 1160, 560],
+        buttonSelect : [],
+    },
+
     menu : {
         rect : [320, 200, 640, 320],
         textPause : [328, 224],

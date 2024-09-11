@@ -11,7 +11,15 @@ function drawSceneInit() {
 }
 
 function drawField() {
+    for (let i = 0; i < varField.monster.length; i++) {
+        context.strokeRect(Math.floor(varField.monster[i]['Position'][0] - varField.camera[0] - 20), Math.floor(varField.monster[i]['Position'][1] - varField.camera[1] - 20), 40, 40)
+    }
+
     context.fillRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20), 40, 40)
+
+    for (let i = 0; i < varField.projectile.length; i++) {
+        context.drawImage(img.projectile[varField.projectile[i]['ID']], Math.floor(varField.projectile[i]['Position'][0] - varField.camera[0] - varField.projectile[i]['Size'][0]), Math.floor(varField.projectile[i]['Position'][1] - varField.camera[1] - varField.projectile[i]['Size'][1]))
+    }
 }
 
 function drawGameLower() {
@@ -23,6 +31,11 @@ function drawGameLower() {
 
     for (let i = 0; i < 6; i++) {
         context.strokeRect(UI.game.lower.hand[i][0], UI.game.lower.hand[i][1], UI.game.lower.hand[i][2], UI.game.lower.hand[i][3])
+
+        if (varPlayer.hand[i] != null) {
+            drawCard(UI.game.lower.hand[i][0], UI.game.lower.hand[i][1], varPlayer.hand[i])
+        }
+
         context.fillText(`${handKeyMap[i]}`, UI.game.lower.handKey[i][0], UI.game.lower.handKey[i][1])
     }
 
@@ -39,6 +52,10 @@ function drawGameLower() {
     context.strokeRect(UI.game.lower.barEnergy[0], UI.game.lower.barEnergy[1], UI.game.lower.barEnergy[2], UI.game.lower.barEnergy[3])
 }
 
+function drawGameStart() {
+
+}
+
 function drawMenu() {
     context.fillStyle = 'White'
     context.fillRect(UI.menu.rect[0], UI.menu.rect[1], UI.menu.rect[2], UI.menu.rect[3])
@@ -52,4 +69,10 @@ function drawMenu() {
     context.fillText('Option [O]', UI.menu.textOption[0], UI.menu.textOption[1])
     context.strokeRect(UI.menu.buttonExit[0], UI.menu.buttonExit[1], UI.menu.buttonExit[2], UI.menu.buttonExit[3])
     context.fillText('Exit [E]', UI.menu.textExit[0], UI.menu.textExit[1])
+}
+
+function drawCard(x, y, card) {
+    context.font = '16px neodgm'
+    context.fillText(card['Energy'], x + 4, y + 4)
+    context.font = '32px neodgm'
 }
