@@ -66,6 +66,19 @@ function keyDown(event) {
         event.preventDefault()
     }
 
+    if (key === 'ArrowLeft') {
+        varKeyboard.left = true
+    }
+    if (key === 'ArrowRight') {
+        varKeyboard.right = true
+    }
+    if (key === 'ArrowUp') {
+        varKeyboard.up = true
+    }
+    if (key === 'ArrowDown') {
+        varKeyboard.down = true
+    }
+
     if (scene === 'Title') {
         keyDownTitle(key)
     } else if (scene === 'Ready') {
@@ -80,6 +93,18 @@ function keyUp(event) {
 
     if (key === 'ArrowLeft' || key === 'ArrowRight' || key === 'ArrowUp' || key === 'ArrowDown' || key === ' ') {
         event.preventDefault()
+    }
+    if (key === 'ArrowLeft') {
+        varKeyboard.left = false
+    }
+    if (key === 'ArrowRight') {
+        varKeyboard.right = false
+    }
+    if (key === 'ArrowUp') {
+        varKeyboard.up = false
+    }
+    if (key === 'ArrowDown') {
+        varKeyboard.down = false
     }
 
     if (scene === 'Title') {
