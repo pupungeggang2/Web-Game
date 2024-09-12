@@ -1,6 +1,6 @@
 const dataCard = {
     1 : {'ID' : 1, 'Element' : 'Normal', 'Rarity' : 'Basic', 'Name' : 'Attack', 'Energy' : 1, 'Effect' : '2.3x'},
-    2 : {'ID' : 2, 'Element' : 'Normal', 'Rarity' : 'Basic', 'Name' : 'Attack2', 'Energy' : 1, 'Effect' : '2.5x'}
+    2 : {'ID' : 2, 'Element' : 'Normal', 'Rarity' : 'Basic', 'Name' : 'Attack2', 'Energy' : 2, 'Effect' : '2.5x'}
 }
 
 const dataProjectile = {

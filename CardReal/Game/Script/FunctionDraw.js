@@ -34,6 +34,8 @@ function drawGameLower() {
 
         if (varPlayer.hand[i] != null) {
             drawCard(UI.game.lower.hand[i][0], UI.game.lower.hand[i][1], varPlayer.hand[i])
+        } else {
+            context.fillText(`${Math.ceil(varPlayer.handReloadTime[i])}`, UI.game.lower.handReloadText[i][0], UI.game.lower.handReloadText[i][1])
         }
 
         context.fillText(`${handKeyMap[i]}`, UI.game.lower.handKey[i][0], UI.game.lower.handKey[i][1])

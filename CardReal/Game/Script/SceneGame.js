@@ -56,6 +56,14 @@ function keyDownGame(key) {
         if (key === 'Escape') {
             menu = true
         }
+
+        if (state === '') {
+            for (let i = 0; i < handKeyMap.length; i++) {
+                if (key === handKeyMap[i]) {
+                    playCard(i)
+                }
+            }
+        }
     } else if (menu === true) {
         if (key === 'Escape' || key === 'R') {
             menu = false

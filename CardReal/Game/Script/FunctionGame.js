@@ -151,18 +151,25 @@ function drawCardFromDeck() {
 function reloadCard() {
     for (let i = 0; i < 6; i++) {
         if (varPlayer.hand[i] === null) {
-            if (varPlayer.handReloadTime < 0) {
+            if (varPlayer.handReloadTime[i] < 0) {
                 if (varPlayer.deck.length > 0) {
                     varPlayer.hand[i] = varPlayer.deck.shift()
-                    varPlayer.handReloadTime = 8
+                    varPlayer.handReloadTime[i] = 8
                 }
             } else {
-                varPlayer.handReloadTime -= delta / 1000
+                varPlayer.handReloadTime[i] -= delta / 1000
             }
         }
     }
 }
 
 function playCard(handPos) {
+    let tempCard = varPlayer.hand[handPos]
 
+    if (varPlayer.energy > tempCard['Energy']) {
+        varPlayer.energy -= tempCard['Energy']
+        varPlayer.deck.push(tempCard)
+        varPlayer.hand[handPos] = null
+        varPlayer.handReloadTime[handPos] = 8
+    }
 }
