@@ -4,7 +4,8 @@ function loopGame() {
     if (menu === false) {
         if (state === '') {
             movePlayer()
-
+            handleProjectile()
+            handleMonster()
         }
     }
 }

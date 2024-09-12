@@ -70,10 +70,6 @@ function movePlayer() {
     varField.camera[1] = tempCamera[1]
 }
 
-function moveProjectile() {
-
-}
-
 function spawnMonster(x, y, ID) {
     let tempMonster = JSON.parse(JSON.stringify(dataMonster[ID]))
 
@@ -83,12 +79,41 @@ function spawnMonster(x, y, ID) {
     varField.monster.push(tempMonster)
 }
 
-function shootProjectile(ID) {
+function handleMonster() {
+
+}
+
+function shootProjectile(position, direction, ID, side) {
     let tempProjectile = JSON.parse(JSON.stringify(dataProjectile[ID]))
 
-    tempProjectile['Position'] = [varField.positionPlayer[0], varField.positionPlayer[1]]
+    tempProjectile['Position'] = [position[0], position[1]]
+    tempProjectile['Direction'] = [direction[0], direction[1]]
+    tempProjectile['Side'] = side
 
     varField.projectile.push(tempProjectile)
+}
+
+function handleProjectile() {
+    let i = 0
+
+    while (i < varField.projectile.length) {
+        let projectile = varField.projectile[i]
+
+        if (projectile['Lifetime'] < 0) {
+            varField.projectile.splice(i, 1)
+            continue
+        }
+
+        projectile['Position'][0] += projectile['Direction'][0] * projectile['Speed'] * delta / 1000
+        projectile['Position'][1] += projectile['Direction'][1] * projectile['Speed'] * delta / 1000
+        i += 1
+
+        projectile['Lifetime'] -= delta / 1000
+    }
+}
+
+function handleProjectileCollision() {
+
 }
 
 function generateDeck(deck) {
@@ -120,4 +145,12 @@ function drawCardFromDeck() {
             }
         }
     }
+}
+
+function reloadCard() {
+    
+}
+
+function playCard(handPos) {
+
 }
