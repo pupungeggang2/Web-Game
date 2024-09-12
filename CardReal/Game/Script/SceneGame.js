@@ -6,6 +6,7 @@ function loopGame() {
             movePlayer()
             handleProjectile()
             handleMonster()
+            reloadCard()
         }
     }
 }

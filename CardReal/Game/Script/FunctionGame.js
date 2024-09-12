@@ -141,6 +141,7 @@ function drawCardFromDeck() {
         for (let i = 0; i < 6; i++) {
             if (varPlayer.hand[i] === null) {
                 varPlayer.hand[i] = varPlayer.deck.shift()
+                varPlayer.handReloadTime[i] = 8
                 break
             }
         }
@@ -148,7 +149,18 @@ function drawCardFromDeck() {
 }
 
 function reloadCard() {
-    
+    for (let i = 0; i < 6; i++) {
+        if (varPlayer.hand[i] === null) {
+            if (varPlayer.handReloadTime < 0) {
+                if (varPlayer.deck.length > 0) {
+                    varPlayer.hand[i] = varPlayer.deck.shift()
+                    varPlayer.handReloadTime = 8
+                }
+            } else {
+                varPlayer.handReloadTime -= delta / 1000
+            }
+        }
+    }
 }
 
 function playCard(handPos) {

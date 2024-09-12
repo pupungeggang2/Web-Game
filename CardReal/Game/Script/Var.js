@@ -41,7 +41,7 @@ let varPlayer = {
 
     ability : [],
     hand : [null, null, null, null, null, null],
-    handRecharge : [0, 0, 0, 0, 0, 0],
+    handReloadTime : [0, 0, 0, 0, 0, 0],
     deck : [],
 }
 

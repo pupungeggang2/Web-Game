@@ -31,7 +31,7 @@ function mouseUpTitle(x, y, button) {
                     varSelect.gameStart = -1
                     generateDeck(startDeck)
                     varPlayer.deck = shuffle(varPlayer.deck)
-                    drawCardFromDeck()
+                    //drawCardFromDeck()
                     varField.positionPlayer = [1280, 1280]
                     spawnMonster(1400, 1400, 1)
                 }
