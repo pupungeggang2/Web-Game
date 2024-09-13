@@ -70,6 +70,8 @@ function movePlayer() {
     varField.camera[1] = tempCamera[1]
 }
 
+// Objects
+
 function spawnMonster(x, y, ID) {
     let tempMonster = JSON.parse(JSON.stringify(dataMonster[ID]))
 
@@ -115,6 +117,8 @@ function handleProjectile() {
 function handleProjectileCollision() {
 
 }
+
+// Card, Stat
 
 function generateDeck(deck) {
     varPlayer.deck = []
@@ -166,10 +170,20 @@ function reloadCard() {
 function playCard(handPos) {
     let tempCard = varPlayer.hand[handPos]
 
-    if (varPlayer.energy > tempCard['Energy']) {
-        varPlayer.energy -= tempCard['Energy']
-        varPlayer.deck.push(tempCard)
-        varPlayer.hand[handPos] = null
-        varPlayer.handReloadTime[handPos] = 8
+    if (tempCard != null) {
+        if (varPlayer.energy > tempCard['Energy']) {
+            varPlayer.energy -= tempCard['Energy']
+            varPlayer.deck.push(tempCard)
+            varPlayer.hand[handPos] = null
+            varPlayer.handReloadTime[handPos] = 8
+        }
+    }
+}
+
+function energyGen() {
+    if (varPlayer.energy + varPlayer.energyGen * delta / 1000 > varPlayer.energyMax) {
+        varPlayer.energy = varPlayer.energyMax
+    } else {
+        varPlayer.energy += varPlayer.energyGen * delta / 1000
     }
 }

@@ -48,8 +48,16 @@ function drawGameLower() {
 
     context.drawImage(img.icon.life, UI.game.lower.iconLife[0], UI.game.lower.iconLife[1])
     context.fillText(`${varPlayer.life}/${varPlayer.lifeMax}`, UI.game.lower.textLife[0], UI.game.lower.textLife[1])
+    context.fillStyle = 'Green'
+    context.fillRect(UI.game.lower.barLife[0], UI.game.lower.barLife[1], Math.floor(UI.game.lower.barLife[2] * varPlayer.life / varPlayer.lifeMax), UI.game.lower.barLife[3])
+    context.fillStyle = 'Black'
+
     context.strokeRect(UI.game.lower.barLife[0], UI.game.lower.barLife[1], UI.game.lower.barLife[2], UI.game.lower.barLife[3])
     context.drawImage(img.icon.energy, UI.game.lower.iconEnergy[0], UI.game.lower.iconEnergy[1])
+    context.fillStyle = 'Orange'
+    context.fillRect(UI.game.lower.barEnergy[0], UI.game.lower.barEnergy[1], Math.floor(UI.game.lower.barEnergy[2] * varPlayer.energy / varPlayer.energyMax), UI.game.lower.barEnergy[3])
+    context.fillStyle = 'Black'
+
     context.fillText(`${varPlayer.energy.toFixed(1)}/${varPlayer.energyMax}`, UI.game.lower.textEnergy[0], UI.game.lower.textEnergy[1])
     context.strokeRect(UI.game.lower.barEnergy[0], UI.game.lower.barEnergy[1], UI.game.lower.barEnergy[2], UI.game.lower.barEnergy[3])
 }

@@ -3,6 +3,7 @@ function loopGame() {
 
     if (menu === false) {
         if (state === '') {
+            energyGen()
             movePlayer()
             handleProjectile()
             handleMonster()

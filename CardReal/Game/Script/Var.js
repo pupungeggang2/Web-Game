@@ -35,6 +35,7 @@ let varPlayer = {
     lifeMax : 60,
     energy : 8,
     energyMax : 8,
+    energyGen : 1,
     power : 10,
     skill : 10,
     speed : 200,
