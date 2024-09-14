@@ -27,7 +27,7 @@ let varSelect = {
 }
 
 let varPlayer = {
-
+    speed : 320,
 }
 
 let varField = {

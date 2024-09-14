@@ -25,7 +25,11 @@ function drawMenu() {
 }
 
 function drawField() {
-    context.strokeRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20), 40, 40)   
+    context.strokeRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20), 40, 40)
+
+    for (let i = 0; i < varField.field['Connection'].length; i++) {
+        context.strokeRect(Math.floor(varField.field['Connection'][i][0][0] - varField.camera[0]), Math.floor(varField.field['Connection'][i][0][1] - varField.camera[1]), varField.field['Connection'][i][0][2], varField.field['Connection'][i][0][3])
+    }
 }
 
 function drawGameStart() {

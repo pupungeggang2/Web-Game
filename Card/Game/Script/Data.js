@@ -3,7 +3,9 @@ const dataField = {
         'Village' : true,
         'Spawn' : [1280, 1280],
         'Thing' : [],
-        'Connection' : [],
+        'Connection' : [
+            [[1240, 40, 80, 80], 'Field1', []]
+        ],
         'Monster' : [],
         'MonsterSpawn' : [],
         'MonsterID' : [],

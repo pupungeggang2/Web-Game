@@ -23,15 +23,41 @@ function displayField() {
 function mouseUpField(x, y, button) {
     if (button === 0) {
         if (menu === false) {
+            if (pointInsideRectArray(x, y, UI.field.buttonMenu)) {
+                menu = true
+            }
             if (state === '') {
+            }
+        } else if (menu === true) {
+            if (pointInsideRectArray(x, y, UI.field.buttonMenu) || pointInsideRectArray(x, y, UI.menu.buttonResume)) {
+                menu = false
+            } else if (pointInsideRectArray(x, y, UI.menu.buttonOption)) {
 
+            } else if (pointInsideRectArray(x, y, UI.menu.buttonExit)) {
+                menu = false
+                scene = 'Title'
+                state = ''
             }
         }
     }
 }
 
 function keyDownField(key) {
+    if (menu === false) {
+        if (key === 'Escape') {
+            menu = true
+        }
+    } else if (menu === true) {
+        if (key === 'Escape' || key === 'r') {
+            menu = false
+        } else if (key === 'o') {
 
+        } else if (key === 'e') {
+            menu = false
+            scene = 'Title'
+            state = ''
+        }
+    }
 }
 
 function keyUpField(key) {

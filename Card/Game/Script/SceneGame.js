@@ -65,7 +65,7 @@ function keyDownGame(key) {
         }
     } else if (menu === true) {
         if (key === 'Escape' || key === 'r') {
-            menu = true
+            menu = false
         } else if (key === 'o') {
 
         } else if (key === 'e') {
