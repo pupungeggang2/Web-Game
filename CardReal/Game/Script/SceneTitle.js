@@ -34,6 +34,7 @@ function mouseUpTitle(x, y, button) {
                     //drawCardFromDeck()
                     varField.positionPlayer = [1280, 1280]
                     spawnMonster(1400, 1400, 1)
+                    spawnMonster(1000, 1400, 1)
                 }
             }
         }

@@ -18,7 +18,7 @@ function drawField() {
     context.fillRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20), 40, 40)
 
     for (let i = 0; i < varField.projectile.length; i++) {
-        context.drawImage(img.projectile[varField.projectile[i]['ID']], Math.floor(varField.projectile[i]['Position'][0] - varField.camera[0] - varField.projectile[i]['Size'][0]), Math.floor(varField.projectile[i]['Position'][1] - varField.camera[1] - varField.projectile[i]['Size'][1]))
+        context.drawImage(img.projectile[varField.projectile[i]['ID']], Math.floor(varField.projectile[i]['Position'][0] - varField.camera[0] - varField.projectile[i]['Size'][0] / 2), Math.floor(varField.projectile[i]['Position'][1] - varField.camera[1] - varField.projectile[i]['Size'][1] / 2))
     }
 }
 
@@ -28,6 +28,13 @@ function drawGameLower() {
 
     context.fillText(`1`, UI.game.lower.abilityKey[0], UI.game.lower.abilityKey[1])
     context.fillText(`2`, UI.game.lower.dashKey[0], UI.game.lower.dashKey[1])
+
+    if (varPlayer.abilityReloadTime > 0) {
+        context.fillText(`${varPlayer.abilityReloadTime.toFixed(1)}`, UI.game.lower.abilityReloadText[0], UI.game.lower.abilityReloadText[1])
+    }
+    if (varPlayer.dashReloadTime > 0) {
+        context.fillText(`${varPlayer.dashReloadTime.toFixed(1)}`, UI.game.lower.dashReloadText[0], UI.game.lower.dashReloadText[1])
+    }
 
     for (let i = 0; i < 6; i++) {
         context.strokeRect(UI.game.lower.hand[i][0], UI.game.lower.hand[i][1], UI.game.lower.hand[i][2], UI.game.lower.hand[i][3])

@@ -40,7 +40,10 @@ let varPlayer = {
     skill : 10,
     speed : 200,
 
-    ability : [],
+    ability : {'Energy' : 0, 'Effect' : [['Shoot', ['Follow', 1, 2.5]]], 'Reload' : 0.6},
+    abilityReloadTime : 0,
+    abilityAuto : true,
+    dashReloadTime : 0,
     hand : [null, null, null, null, null, null],
     handReloadTime : [0, 0, 0, 0, 0, 0],
     deck : [],
@@ -49,7 +52,7 @@ let varPlayer = {
 let varField = {
     camera : [0, 0],
     positionPlayer : [0, 0],
-    facingPlayer : ['None', 'None'],
+    facingPlayer : ['None', 'Down'],
     directionPlayer : ['None', 'None'],
     destination : [0, 0],
     monster : [],

@@ -26,8 +26,10 @@ const UI = {
         lower : {
             ability : [40, 640, 80, 80],
             abilityKey : [84, 604],
+            abilityReloadText : [56, 664],
             dash : [120, 640, 80, 80],
             dashKey : [164, 604, 80, 80],
+            dashReloadText : [136, 664],
             handKey : [
                 [284, 604], [364, 604], [444, 604], [524, 604], [604, 604], [684, 604]
             ],

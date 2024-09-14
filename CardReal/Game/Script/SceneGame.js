@@ -3,11 +3,7 @@ function loopGame() {
 
     if (menu === false) {
         if (state === '') {
-            energyGen()
-            movePlayer()
-            handleProjectile()
-            handleMonster()
-            reloadCard()
+            gameTick()
         }
     }
 }
@@ -63,6 +59,13 @@ function keyDownGame(key) {
                 if (key === handKeyMap[i]) {
                     playCard(i)
                 }
+            }
+
+            if (key === '1') {
+                useAbility()
+            }
+            if (key === '2') {
+                useDash()
             }
         }
     } else if (menu === true) {

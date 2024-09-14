@@ -11,3 +11,8 @@ function pointInsideCircle(x, y, cx, cy, r) {
 
     return dist < r
 }
+
+function vectorNormalize(vec) {
+    let norm = Math.sqrt(vec[0] ** 2 + vec[1] ** 2)
+    return [vec[0] / norm, vec[1] / norm]
+}
