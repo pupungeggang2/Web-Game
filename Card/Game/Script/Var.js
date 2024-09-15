@@ -23,7 +23,7 @@ let varKeyboard = {
 }
 
 let varSelect = {
-
+    adventureStart : -1,
 }
 
 let varPlayer = {
@@ -34,11 +34,13 @@ let varField = {
     place : false,
     camera : [0, 0],
     positionPlayer : [0, 0],
+    destinationPlace : '',
+    destinationPosition : [0, 0],
     field : {}
 }
 
 let varAdventure = {
-
+    adventure : false
 }
 
 let varGame = {

@@ -12,7 +12,28 @@ const UI = {
     },
 
     field : {
-        buttonMenu : [1220, 20, 40, 40]
+        buttonMenu : [1220, 20, 40, 40],
+
+        info : {
+
+        },
+
+        adventureConfirm : {
+            rect : [320, 240, 640, 240],
+            textTitle : [328, 248],
+            buttonYes : [400, 320, 160, 80],
+            textYes : [408, 344],
+            buttonNo : [720, 320, 160, 80],
+            textNo : [728, 344],
+        },
+
+        adventureStart : {
+            rect : [80, 80, 1120, 560],
+            textTitle : [88, 88],
+            buttonSelect : [[160, 160, 160, 240], [560, 160, 160, 240], [960, 160, 160, 240]],
+            buttonStart : [520, 480, 240, 80],
+            textStart : [528, 504]
+        }
     },
 
     game : {
