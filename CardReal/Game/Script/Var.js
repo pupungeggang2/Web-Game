@@ -60,6 +60,9 @@ let varField = {
 }
 
 let varGame = {
+    projectileNo : 0,
+    monsterNo : 0,
+    monsterSpawnPeriod : 5,
     selectItem : [],
     time : 0,
 }

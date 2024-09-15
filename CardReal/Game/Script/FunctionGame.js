@@ -73,26 +73,60 @@ function movePlayer() {
 
 // Objects
 
+function handleWave() {
+    if (varGame.monsterSpawnPeriod < 0) {
+        for (let i = 0; i < 3; i++) {
+            let spawnRectIndex = Math.floor(Math.random() * 4)
+            let randX = monsterSpawnRect[spawnRectIndex][0] + Math.floor(Math.random() * monsterSpawnRect[spawnRectIndex][2])
+            let randY = monsterSpawnRect[spawnRectIndex][1] + Math.floor(Math.random() * monsterSpawnRect[spawnRectIndex][3])
+
+            spawnMonster(varField.positionPlayer[0] + randX, varField.positionPlayer[1] + randY, 1)
+        }
+        varGame.monsterSpawnPeriod = 5
+    } else {
+        varGame.monsterSpawnPeriod -= delta / 1000
+    }
+}
+
 function spawnMonster(x, y, ID) {
     let tempMonster = JSON.parse(JSON.stringify(dataMonster[ID]))
 
+    tempMonster['No'] = varGame.monsterNo
     tempMonster['LifeMax'] = tempMonster['Life']
     tempMonster['Position'] = [x, y]
 
     varField.monster.push(tempMonster)
+    varGame.monsterNo += 1
 }
 
 function handleMonster() {
+    let i = 0
 
+    while (i < varField.monster.length) {
+        let monsterRemoved = false
+
+        if (varField.monster[i]['Life'] <= 0) {
+            monsterRemoved = true   
+        }
+
+        if (monsterRemoved === true) {
+            varField.monster.splice(i, 1)
+        } else {
+            i += 1
+        }
+    }
 }
 
 function shootProjectile(position, direction, ID, side, damage) {
     let tempProjectile = JSON.parse(JSON.stringify(dataProjectile[ID]))
 
+    tempProjectile['No'] = varGame.projectileNo
     tempProjectile['Position'] = [position[0], position[1]]
     tempProjectile['Direction'] = [direction[0], direction[1]]
     tempProjectile['Side'] = side
     tempProjectile['Damage'] = damage
+
+    varGame.projectileNo += 1
 
     varField.projectile.push(tempProjectile)
 }
@@ -102,17 +136,32 @@ function handleProjectile() {
 
     while (i < varField.projectile.length) {
         let projectile = varField.projectile[i]
+        let projectileRemoved = false
 
         if (projectile['Lifetime'] < 0) {
-            varField.projectile.splice(i, 1)
-            continue
+            projectileRemoved = true
         }
 
-        projectile['Position'][0] += projectile['Direction'][0] * projectile['Speed'] * delta / 1000
-        projectile['Position'][1] += projectile['Direction'][1] * projectile['Speed'] * delta / 1000
-        i += 1
+        for (let j = 0; j < varField.monster.length; j++) {
+            if (projectileRemoved === false) {
+                if (pointInsideRect(varField.projectile[i]['Position'][0], varField.projectile[i]['Position'][1], varField.monster[j]['Position'][0] - 20, varField.monster[j]['Position'][1] - 20, 40, 40)) {
+                    console.log('Hit', i, j)
+                    if (projectile['Pierce'] === false) {
+                        projectileRemoved = true
+                        varField.monster[j]['Life'] -= projectile['Damage']
+                    }
+                }
+            }
+        }
 
-        projectile['Lifetime'] -= delta / 1000
+        if (projectileRemoved === true) {
+            varField.projectile.splice(i, 1)
+        } else {
+            projectile['Position'][0] += projectile['Direction'][0] * projectile['Speed'] * delta / 1000
+            projectile['Position'][1] += projectile['Direction'][1] * projectile['Speed'] * delta / 1000
+            projectile['Lifetime'] -= delta / 1000
+            i += 1
+        }
     }
 }
 
@@ -266,6 +315,7 @@ function gameTick() {
         useAbility()
     }
     movePlayer()
+    handleWave()
     handleProjectile()
     handleMonster()
     reload()

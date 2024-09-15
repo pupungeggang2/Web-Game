@@ -12,17 +12,27 @@ function drawSceneInit() {
 
 function drawField() {
     for (let i = 0; i < varField.monster.length; i++) {
-        context.strokeRect(Math.floor(varField.monster[i]['Position'][0] - varField.camera[0] - 20), Math.floor(varField.monster[i]['Position'][1] - varField.camera[1] - 20), 40, 40)
+        drawMonster(varField.monster[i])
     }
 
-    context.fillRect(Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20), 40, 40)
+    context.drawImage(img.player, Math.floor(varField.positionPlayer[0] - varField.camera[0] - 20), Math.floor(varField.positionPlayer[1] - varField.camera[1] - 20))
 
     for (let i = 0; i < varField.projectile.length; i++) {
         context.drawImage(img.projectile[varField.projectile[i]['ID']], Math.floor(varField.projectile[i]['Position'][0] - varField.camera[0] - varField.projectile[i]['Size'][0] / 2), Math.floor(varField.projectile[i]['Position'][1] - varField.camera[1] - varField.projectile[i]['Size'][1] / 2))
     }
 }
 
+function drawMonster(monster) {
+    context.drawImage(img.monster[monster['ID']], Math.floor(monster['Position'][0] - varField.camera[0] - 20), Math.floor(monster['Position'][1] - varField.camera[1] - 20))
+    context.drawImage(img.monsterLifeBarEmpty, Math.floor(monster['Position'][0] - varField.camera[0] - 20), Math.floor(monster['Position'][1] - varField.camera[1] - 20 - 12))
+    context.drawImage(img.monsterLifeBarFull, 0, 0, Math.floor(monster['Life'] / monster['LifeMax'] * 40), 10, Math.floor(monster['Position'][0] - varField.camera[0] - 20), Math.floor(monster['Position'][1] - varField.camera[1] - 20 - 12), Math.floor(monster['Life'] / monster['LifeMax'] * 40), 10)
+}
+
 function drawGameLower() {
+    context.fillStyle = 'White'
+    context.fillRect(UI.game.lowerArea[0], UI.game.lowerArea[1], UI.game.lowerArea[2], UI.game.lowerArea[3])
+    context.fillStyle = 'Black'
+
     context.strokeRect(UI.game.lower.ability[0], UI.game.lower.ability[1], UI.game.lower.ability[2], UI.game.lower.ability[3])
     context.strokeRect(UI.game.lower.dash[0], UI.game.lower.dash[1], UI.game.lower.dash[2], UI.game.lower.dash[3])
 

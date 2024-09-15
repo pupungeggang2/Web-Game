@@ -4,8 +4,8 @@ const dataCard = {
 }
 
 const dataProjectile = {
-    1 : {'ID' : 1, 'Size' : [20, 20], 'Speed' : 400, 'Lifetime' : 1},
-    2 : {'ID' : 2, 'Size' : [20, 20], 'Speed' : 400, 'Lifetime' : 1}
+    1 : {'ID' : 1, 'Size' : [20, 20], 'Speed' : 400, 'Lifetime' : 1, 'DamagePeriod' : 0, 'Pierce' : false},
+    2 : {'ID' : 2, 'Size' : [20, 20], 'Speed' : 400, 'Lifetime' : 1, 'DamagePeriod' : 0.2, 'Pierce' : false}, 
 }
 
 const dataItem = {
