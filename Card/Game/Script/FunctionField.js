@@ -1,5 +1,15 @@
 function loadField(place) {
     varField.field = JSON.parse(JSON.stringify(dataField[place]))
+
+    if (varField.field['Village'] === false) {
+        let tempList = JSON.parse(JSON.stringify(varField.field['MonsterSpawn']))
+        let spawnList = []
+        for (let i = 0; i < 3; i++) {
+            let index = Math.floor(Math.random() * tempList.length)
+            spawnList.push(tempList.splice(index, 1)[0])
+        }
+        varField.field['Monster'] = spawnList
+    }
 }
 
 function movePlayer() {
@@ -45,7 +55,16 @@ function fieldInteract() {
                 loadField(varField.place)
             }
 
-            break
+            return
+        }
+    }
+
+    for (let i = 0; i < varField.field['Monster'].length; i++) {
+        if (pointInsideRect(varField.positionPlayer[0], varField.positionPlayer[1], varField.field['Monster'][i][0], varField.field['Monster'][i][1], 40, 40)) {
+            scene = 'Game'
+            state = 'Start'
+            varGame.monsterID = varField.field['MonsterID'][Math.floor(Math.random() * varField.field['MonsterID'].length)]
+            gameInit()
         }
     }
 }

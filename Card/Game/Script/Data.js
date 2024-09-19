@@ -16,11 +16,12 @@ const dataField = {
         'Spawn' : [640, 640],
         'Thing' : [],
         'Connection' : [
-            [[600, 1160, 80, 80], 'HomeTown', [640, 80]]
+            [[600, 1160, 80, 80], 'HomeTown', [640, 80]],
+            [[600, 40, 80, 80], 'Field2', [640, 1200]]
         ],
         'Monster' : [],
-        'MonsterSpawn' : [],
-        'MonsterID' : [],
+        'MonsterSpawn' : [[120, 120], [1120, 120], [620, 620], [120, 1120], [1120, 1120]],
+        'MonsterID' : [1, 2],
     },
 
     'Field2' : {

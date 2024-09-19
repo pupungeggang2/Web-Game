@@ -44,6 +44,7 @@ let varAdventure = {
 }
 
 let varGame = {
+    monsterID : 0,
     turn : 0,
     turnWho : 0,
     startHandChange : [false, false, false],
