@@ -40,10 +40,11 @@ let varPlayer = {
     skill : 10,
     speed : 200,
 
-    ability : {'Energy' : 0, 'Effect' : [['Shoot', ['Follow', 1, 2.5]]], 'Reload' : 0.6},
+    ability : {'Energy' : 0, 'Effect' : [['Shoot', ['Follow', 1, 1]]], 'Reload' : 0.6},
     abilityReloadTime : 0,
     abilityAuto : true,
     dashReloadTime : 0,
+    dashTime : 0,
     hand : [null, null, null, null, null, null],
     handReloadTime : [0, 0, 0, 0, 0, 0],
     deck : [],
@@ -62,7 +63,8 @@ let varField = {
 let varGame = {
     projectileNo : 0,
     monsterNo : 0,
-    monsterSpawnPeriod : 5,
+    monsterSpawnReload : 3,
+    monsterSpawnPeriod : 3,
     selectItem : [],
     time : 0,
 }

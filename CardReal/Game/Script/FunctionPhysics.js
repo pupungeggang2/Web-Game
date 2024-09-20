@@ -16,3 +16,46 @@ function vectorNormalize(vec) {
     let norm = Math.sqrt(vec[0] ** 2 + vec[1] ** 2)
     return [vec[0] / norm, vec[1] / norm]
 }
+
+function twoRectCollide(a, b) {
+    let collision = ['N', 'N', 0, 0]
+    
+    let al = a[0]
+    let ar = a[0] + a[2]
+    let au = a[1]
+    let ad = a[1] + a[3]
+    let bl = b[0]
+    let br = b[0] + b[2]
+    let bu = b[1]
+    let bd = b[1] + b[3]
+
+    if (bl < al && al < br) {
+        if (!(bd <= au || bu >= ad)) {
+            collision[0] = 'R'
+            collision[2] = br - al
+        }
+    }
+    
+    if (bl < ar && ar < br) {
+        if (!(bd <= au || bu >= ad)) {
+            collision[0] = 'L'
+            collision[2] = ar - bl
+        }
+    }
+
+    if (bu < au && au < bd) {
+        if (!(br <= al || bl >= ar)) {
+            collision[1] = 'D'
+            collision[3] = bd - au
+        }
+    }
+    
+    if (bu < ad && ad < bd) {
+        if (!(br <= al || bl >= ar)) {
+            collision[1] = 'U'
+            collision[3] = ad - bu
+        }
+    }
+
+    return collision
+}

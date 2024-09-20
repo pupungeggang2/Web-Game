@@ -74,7 +74,7 @@ function movePlayer() {
 // Objects
 
 function handleWave() {
-    if (varGame.monsterSpawnPeriod < 0) {
+    if (varGame.monsterSpawnReload < 0) {
         for (let i = 0; i < 3; i++) {
             let spawnRectIndex = Math.floor(Math.random() * 4)
             let randX = monsterSpawnRect[spawnRectIndex][0] + Math.floor(Math.random() * monsterSpawnRect[spawnRectIndex][2])
@@ -82,21 +82,23 @@ function handleWave() {
 
             spawnMonster(varField.positionPlayer[0] + randX, varField.positionPlayer[1] + randY, 1)
         }
-        varGame.monsterSpawnPeriod = 5
+        varGame.monsterSpawnReload = varGame.monsterSpawnPeriod
     } else {
-        varGame.monsterSpawnPeriod -= delta / 1000
+        varGame.monsterSpawnReload -= delta / 1000
     }
 }
 
 function spawnMonster(x, y, ID) {
-    let tempMonster = JSON.parse(JSON.stringify(dataMonster[ID]))
+    if (varField.monster.length < 20) {
+        let tempMonster = JSON.parse(JSON.stringify(dataMonster[ID]))
 
-    tempMonster['No'] = varGame.monsterNo
-    tempMonster['LifeMax'] = tempMonster['Life']
-    tempMonster['Position'] = [x, y]
+        tempMonster['No'] = varGame.monsterNo
+        tempMonster['LifeMax'] = tempMonster['Life']
+        tempMonster['Position'] = [x, y]
 
-    varField.monster.push(tempMonster)
-    varGame.monsterNo += 1
+        varField.monster.push(tempMonster)
+        varGame.monsterNo += 1
+    }
 }
 
 function handleMonster() {
@@ -104,6 +106,46 @@ function handleMonster() {
 
     while (i < varField.monster.length) {
         let monsterRemoved = false
+
+        let diff = [varField.positionPlayer[0] - varField.monster[i]['Position'][0], varField.positionPlayer[1] - varField.monster[i]['Position'][1]]
+        let diffNormalized = vectorNormalize(diff)
+        let tempPosition = [varField.monster[i]['Position'][0], varField.monster[i]['Position'][1]]
+        tempPosition[0] += diffNormalized[0] * varField.monster[i]['Speed'] * delta / 1000
+        tempPosition[1] += diffNormalized[1] * varField.monster[i]['Speed'] * delta / 1000
+
+        for (let j = 0; j < varField.monster.length; j++) {
+            if (i != j) {
+                let collision = twoRectCollide([varField.monster[j]['Position'][0], varField.monster[j]['Position'][1], 40, 40], [tempPosition[0], tempPosition[1], 40, 40])
+                if (collision[0] != 'N' && collision[1] != 'N') {
+                    if (collision[2] < collision[3]) {
+                        if (collision[0] === 'L') {
+                            tempPosition[0] += collision[2]
+                        } else if (collision[0] === 'R') {
+                            tempPosition[0] += -collision[2]
+                        }
+                    } else {
+                        if (collision[1] === 'U') {
+                            tempPosition[1] += collision[3]
+                        } else if (collision[1] === 'D') {
+                            tempPosition[1] += -collision[3]
+                        }
+                    }   
+                } else {
+                    if (collision[0] === 'L') {
+                        tempPosition[0] += collision[2]
+                    } else if (collision[0] === 'R') {
+                        tempPosition[0] += -collision[2]
+                    } else if (collision[1] === 'U') {
+                        tempPosition[1] += collision[3]
+                    } else if (collision[1] === 'D') {
+                        tempPosition[1] += -collision[3]
+                    }
+                }
+            }
+        }
+
+        varField.monster[i]['Position'][0] = tempPosition[0]
+        varField.monster[i]['Position'][1] = tempPosition[1]
 
         if (varField.monster[i]['Life'] <= 0) {
             monsterRemoved = true   

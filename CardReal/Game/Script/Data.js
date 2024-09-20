@@ -17,5 +17,5 @@ const dataEquipment = {
 }
 
 const dataMonster = {
-    1 : {'ID' : 1, 'Life' : 40, 'Speed' : 200, 'Attack' : 10}
+    1 : {'ID' : 1, 'Life' : 40, 'Speed' : 120, 'Attack' : 10}
 }
