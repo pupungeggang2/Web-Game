@@ -9,6 +9,8 @@ function main() {
     window.addEventListener('keydown', keyDown, false)
     window.addEventListener('keyup', keyUp, false)
 
+    gameInit()
+
     gameFrameCurrent = Date.now()
     gameFramePrevious = Date.now() - 16
     gameLoop = requestAnimationFrame(loop)
