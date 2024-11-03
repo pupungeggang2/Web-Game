@@ -9,4 +9,5 @@ This is a repository about web game.
 - [ ] Studying HTML5, CSS, JS.
 - [ ] Studying object-oriented programming.
 - [ ] Studying WebGL.
+- [ ] Studying physics mechanism.
 - [ ] Making custom game engine.
